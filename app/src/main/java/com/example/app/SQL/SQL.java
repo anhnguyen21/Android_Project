@@ -39,29 +39,57 @@ public class SQL extends SQLiteOpenHelper {
         db.execSQL(cart);
 
         // insert du lieu vao bang popular
-        String ROW1 = "INSERT INTO popular" + " Values (1,'Meo','meo1','5.0','4.5 minis', 'Free Delivery','150','Extra special');";
+        String ROW1 = "INSERT INTO popular" + " Values (1,'TG Smart Watch Li','sm3','4.3','4.5 minis', 'Free Delivery','350','Extra special');";
         db.execSQL(ROW1);
 
-        String ROW2 = "INSERT INTO popular"  + " Values (2,'Chó','dog1','5.0','4.5 minis', 'Free Delivery','150','Extra special');";
+        String ROW2 = "INSERT INTO popular"  + " Values (2,'TG Smart Watch Hi','sm2','3.6','4.5 minis', 'Free Delivery','360','Extra special');";
         db.execSQL(ROW2);
 
-        String ROW3 = "INSERT INTO popular"   + " Values (3,'Thỏ','rabbit1','5.0','4.5 minis', 'Free Delivery','150','Extra special');";
+        String ROW3 = "INSERT INTO popular"   + " Values (3,'TG Tegar Dev','sm1','4.0','4.5 minis', 'Free Delivery','200','Extra special');";
         db.execSQL(ROW3);
+
+        String ROW4 = "INSERT INTO popular" + " Values (4,'BeU 2 ','m4','4.6','4.5 minis', 'Free Delivery','188','Extra special');";
+        db.execSQL(ROW4);
+
+        String ROW5 = "INSERT INTO popular"  + " Values (5,'BeU 3','m3','4.7','4.5 minis', 'Free Delivery','136','Extra special');";
+        db.execSQL(ROW5);
+
+        String ROW6 = "INSERT INTO popular"   + " Values (6,'BeU 4','m2','4.2','4.5 minis', 'Free Delivery','147','Extra special');";
+        db.execSQL(ROW6);
+        String ROW7 = "INSERT INTO popular" + " Values (7,'BeU 5','m1','4.7','4.5 minis', 'Free Delivery','183','Extra special');";
+        db.execSQL(ROW7);
+
+
+
+
+
+
         // insert du lieu vao bang new product
-        String R1 = "INSERT INTO newproduct" + " Values (1,'Chó trắng','dog1','5.0','4.5 minis', 'Free Delivery','150','Extra special');";
+        String R1 = "INSERT INTO newproduct" + " Values (1,'Honner Band 5','g4','4.6','4.5 minis', 'Free Delivery','120','Extra special');";
         db.execSQL(R1);
 
-        String R2 = "INSERT INTO newproduct"  + " Values (2,'Chó lông xù','dog2','5.0','4.5 minis', 'Free Delivery','150','Extra special');";
+        String R2 = "INSERT INTO newproduct"  + " Values (2,'Samsung digital g3','g3','3.9','4.5 minis', 'Free Delivery','110','Extra special');";
         db.execSQL(R2);
 
-        String R3 = "INSERT INTO newproduct"   + " Values (3,'Chó ụ','dog3','5.0','4.5 minis', 'Free Delivery','150','Extra special');";
+        String R3 = "INSERT INTO newproduct"   + " Values (3,'Samsung Digital g2','g2','4.7','4.5 minis', 'Free Delivery','125','Extra special');";
         db.execSQL(R3);
 
-        String R4 = "INSERT INTO newproduct"   + " Values (4,'Chó đốm','dog4','5.0','4.5 minis', 'Free Delivery','150','Extra special');";
+        String R4 = "INSERT INTO newproduct"   + " Values (4,'Huawei Nova 2T','g1','4.8','4.5 minis', 'Free Delivery','140','Extra special');";
         db.execSQL(R4);
 
-        String R5 = "INSERT INTO newproduct"   + " Values (5,'Chó nhỏ','dog5','5.0','4.5 minis', 'Free Delivery','150','Extra special');";
+        String R5 = "INSERT INTO newproduct"   + " Values (5,'Claller g4','d4','4.7','4.5 minis', 'Free Delivery','160','Extra special');";
         db.execSQL(R5);
+
+        String R6 = "INSERT INTO newproduct" + " Values (6,'Claller Detected v3','d3','4.3','4.5 minis', 'Free Delivery','150','Extra special');";
+        db.execSQL(R6);
+
+        String R7 = "INSERT INTO newproduct"  + " Values (7,'Teemo action 3','d2','4.9','4.5 minis', 'Free Delivery','130','Extra special');";
+        db.execSQL(R7);
+
+        String R8 = "INSERT INTO newproduct"   + " Values (8,'Ziggs act 1','d1','4.3','4.5 minis', 'Free Delivery','115','Extra special');";
+        db.execSQL(R8);
+
+
 
     }
     public void addCart(cart cart){
