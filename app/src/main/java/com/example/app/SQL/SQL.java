@@ -233,6 +233,7 @@ public class SQL extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
+        this.getCart();
+        onCreate(db);
     }
 }

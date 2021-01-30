@@ -8,11 +8,11 @@
 
     <ImageView
         android:id="@+id/imgDetais"
-        android:layout_width="wrap_content"
+        android:layout_width="410dp"
         android:layout_height="400dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/dog5" />
+        app:srcCompat="@drawable/g4" />
 
     <ImageView
         android:id="@+id/imageView3"
@@ -30,7 +30,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="500dp"
-        android:layout_marginTop="250dp"
+        android:layout_marginTop="270dp"
         android:background="@drawable/bg_details"
         app:layout_constraintTop_toTopOf="@+id/imgDetais"
         tools:layout_editor_absoluteX="0dp">
@@ -68,8 +68,9 @@
             android:layout_marginLeft="74dp"
             android:layout_marginEnd="54dp"
             android:layout_marginRight="54dp"
-            android:layout_marginBottom="56dp"
+            android:layout_marginBottom="100dp"
             android:drawableEnd="@drawable/ic_baseline_shopping_cart_24"
+            android:text="Add to cart"
             android:textSize="30sp"
             app:backgroundTint="#FFA07A"
             app:icon="@drawable/ic_baseline_shopping_cart_24"

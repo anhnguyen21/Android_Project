@@ -115,15 +115,5 @@ public class tabnavi extends AppCompatActivity {
         });
 
         sql=new SQL(tabnavi.this);
-
-//        std=sql.getAllPopular();
-//        recoment=sql.getRecoment();
-//        cart=sql.getCart();
-//
-//
-//
-//        Log.d("name",recoment.get(1).getName());
-
-
     }
 }
