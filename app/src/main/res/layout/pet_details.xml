@@ -21,6 +21,7 @@
         android:layout_marginStart="700dp"
         android:layout_marginLeft="700dp"
         android:layout_marginTop="120dp"
+        android:stateListAnimator="@null"
         app:layout_constraintBottom_toTopOf="@+id/imgDetais"
         app:layout_constraintEnd_toStartOf="@+id/imgDetais"
         app:layout_constraintStart_toStartOf="parent"
