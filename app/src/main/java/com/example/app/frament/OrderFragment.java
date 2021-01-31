@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -29,6 +30,7 @@ public class OrderFragment extends Fragment {
     RecyclerView recyclerViewOder;
     private List<cart> cartList;
     private List<Recommended> recommendedList;
+    TextView itemPrice, itemQuantity;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -76,9 +78,20 @@ public class OrderFragment extends Fragment {
                              Bundle savedInstanceState) {
         cartList= tabnavi.sql.getCart();
         recommendedList=tabnavi.sql.getRecoment();
-        // Inflate the layout for this fragment
-        Log.d("them sp","hien thi gio hang");
+        int totalPrice=0;
+        int total=0;
+        for (int i=0;i<cartList.size();i++) {
+            int quantity = cartList.get(i).getQuanlity();
+            int price = Integer.parseInt(recommendedList.get(cartList.get(i).getIdPro() - 1).getPrice());
+            total+=quantity;
+            totalPrice += quantity * price;
+            Log.d("i:", String.valueOf(totalPrice));
+        }
         v=inflater.inflate(R.layout.fragment_oder, container, false);
+        itemQuantity=v.findViewById((R.id.txtTotalNumber));
+        itemPrice = v.findViewById(R.id.txtTotal);
+        itemPrice.setText(String.valueOf(totalPrice)+ " $");
+        itemQuantity.setText(String.valueOf(total));
         recyclerViewOder=v.findViewById(R.id.recyCart);
         OderAdapter oderAdapter=new OderAdapter(getContext(),cartList,recommendedList);
         recyclerViewOder.setLayoutManager(new LinearLayoutManager(getActivity()));

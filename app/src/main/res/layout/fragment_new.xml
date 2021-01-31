@@ -17,38 +17,53 @@
             android:layout_height="match_parent">
 
 
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:layout_marginEnd="24dp"
-                android:layout_marginRight="24dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_baseline_shopping_cart_24" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout4"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:background="@drawable/watch">
 
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="29dp"
+                    android:layout_marginLeft="29dp"
+                    android:layout_marginTop="30dp"
+                    app:layout_constraintStart_toEndOf="@+id/search"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_baseline_shopping_cart_24" />
 
-            <EditText
-                android:id="@+id/search"
-                android:layout_width="228dp"
-                android:layout_height="35dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="27dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
-                android:background="@drawable/search_bg"
-                android:drawableStart="@drawable/ic_search_black_24dp"
-                android:ems="10"
-                android:hint="Search"
-                android:inputType="textPersonName"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.596"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                <ImageView
+                    android:id="@+id/imageView8"
+                    android:layout_width="78dp"
+                    android:layout_height="77dp"
+                    android:src="@drawable/logo"
+                    tools:layout_editor_absoluteX="16dp"
+                    tools:layout_editor_absoluteY="6dp" />
+
+                <EditText
+                    android:id="@+id/search"
+                    android:layout_width="228dp"
+                    android:layout_height="35dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="27dp"
+                    android:background="@drawable/search_bg"
+                    android:drawableStart="@drawable/ic_baseline_search_24"
+                    android:ems="10"
+                    android:hint="Search"
+                    android:inputType="textPersonName"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:textColor="@color/red"
+                    android:textColorHighlight="@color/red"
+                    android:textColorHint="@color/red"
+                    android:textColorLink="@color/red"
+                    app:layout_constraintStart_toEndOf="@+id/imageView8"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/popular_recycler"
@@ -71,14 +86,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginLeft="20dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="10dp"
                 android:fontFamily="cursive"
                 android:text="Type watch"
                 android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/search" />
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout4" />
 
             <TextView
                 android:id="@+id/textView3"
@@ -137,16 +152,19 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/allproduct" />
 
-            <ImageView
-                android:id="@+id/imageView8"
-                android:layout_width="78dp"
-                android:layout_height="77dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="6dp"
-                android:src="@drawable/logo"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginRight="30dp"
+                android:text="View all"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/popular_recycler" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </FrameLayout>

@@ -40,7 +40,7 @@ public class FoodDetail extends AppCompatActivity {
         imageView = findViewById(R.id.imgDetais);
         itemName = findViewById(R.id.txtNamedetals);
         itemPrice = findViewById(R.id.txtPriceDe);
-        itemRating = findViewById(R.id.rating);
+//        itemRating = findViewById(R.id.rating);
 //        ratingBar = findViewById(R.id.ratingBar);
 //
 //        Glide.with(getApplicationContext()).load(imageUrl).into(imageView);
@@ -50,7 +50,7 @@ public class FoodDetail extends AppCompatActivity {
         itemName.setText(name);
         itemPrice.setText(price+"$");
 //        itemRating.setText(rating);
-        itemRating.setText(rating);
+//        itemRating.setText(rating);
 //        ratingBar.setRating(Float.parseFloat(rating));
         SQL sql= new SQL(FoodDetail.this);
         Button btn=findViewById(R.id.btnOder);
