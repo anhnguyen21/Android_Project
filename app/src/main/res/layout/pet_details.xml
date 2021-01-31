@@ -9,7 +9,7 @@
     <ImageView
         android:id="@+id/imgDetais"
         android:layout_width="410dp"
-        android:layout_height="400dp"
+        android:layout_height="350dp"
         android:background="#D8D8D8"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -25,6 +25,7 @@
         android:background="@color/white"
         app:backgroundTint="#D8D8D8"
         app:icon="@drawable/ic_baseline_shopping_cart_24"
+        android:stateListAnimator="@null"
         app:iconPadding="0dp"
         app:iconTint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
@@ -44,8 +45,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="45dp"
             android:layout_marginLeft="45dp"
-            android:layout_marginTop="50dp"
-            android:text="TextView"
+            android:layout_marginTop="30dp"
+            android:text="View Detail"
+            android:textColor="@color/black"
+            android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -53,11 +56,11 @@
             android:id="@+id/txtPriceDe"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="129dp"
-            android:layout_marginLeft="129dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginStart="100dp"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="30dp"
             android:fontFamily="@font/abril_fatface"
-            android:text="TextView"
+            android:text="View "
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/txtNamedetals"
@@ -65,22 +68,22 @@
 
         <Button
             android:id="@+id/btnOder"
-            android:layout_width="wrap_content"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="74dp"
             android:layout_marginLeft="74dp"
-            android:layout_marginEnd="54dp"
-            android:layout_marginRight="54dp"
-            android:layout_marginBottom="150dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="20dp"
             android:stateListAnimator="@null"
             android:text="Add to cart"
-            android:textSize="30sp"
+            android:textSize="24sp"
             app:backgroundTint="#FFA07A"
             app:icon="@drawable/ic_baseline_shopping_cart_24"
             app:iconTint="@color/green"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/relative"
             tools:text="Add to cart" />
 
         <TextView
@@ -89,7 +92,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="45dp"
             android:layout_marginLeft="45dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="15dp"
             android:text="Description"
             android:textColor="@color/red"
             android:textSize="18sp"
@@ -103,15 +106,89 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
             android:layout_marginLeft="40dp"
-            android:layout_marginTop="23dp"
+            android:layout_marginTop="15dp"
             android:layout_marginEnd="40dp"
             android:layout_marginRight="40dp"
             android:fontFamily="sans-serif"
-            android:text="A pet is a domesticated animal that lives with people, but is not forced to work and is not eaten, in most instances. In most cases, a pet is kept to entertain people or for companionship. Some pets such as dogs and cats are placed in an animal shelter if there is no one willing to take care of it."
+            android:text="Fashion is a conductry. And your style will become famous when you wear it. "
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            app:layout_constraintEnd_toStartOf="@+id/txtRating"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_baseline_star_24" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="62dp"
+            android:layout_height="53dp"
+            android:layout_marginStart="31dp"
+            android:layout_marginLeft="31dp"
+            android:layout_marginTop="25dp"
+            android:stateListAnimator="@null"
+            android:textSize="30sp"
+            app:backgroundTint="@color/white"
+            app:icon="@drawable/ic_baseline_favorite_border_24"
+            app:iconPadding="0dp"
+            app:iconTint="@color/red"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/relative" />
+
+        <TextView
+            android:id="@+id/txtRating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="33dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginRight="30dp"
+            android:text="5.0"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="45dp"
+            android:layout_marginLeft="45dp"
+            android:layout_marginTop="13dp"
+            android:text="Relative "
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/relative"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="20dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView14" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/btnBack"
+        android:layout_width="49dp"
+        android:layout_height="44dp"
+        android:stateListAnimator="@null"
+        app:backgroundTint="#D8D8D8"
+        app:icon="@drawable/ic_baseline_arrow_back_ios_24"
+        app:iconTint="@color/black"
+        tools:layout_editor_absoluteX="12dp"
+        tools:layout_editor_absoluteY="4dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
