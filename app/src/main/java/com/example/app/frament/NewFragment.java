@@ -1,5 +1,6 @@
 package com.example.app.frament;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -10,9 +11,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.example.app.Adapter.PopularAdapter;
 import com.example.app.Adapter.RecomentAdapter;
+import com.example.app.CartProduct;
+import com.example.app.FoodDetail;
 import com.example.app.R;
 import com.example.app.model.Popular;
 import com.example.app.model.Recommended;
@@ -73,6 +77,7 @@ public class NewFragment extends Fragment {
         populars=tabnavi.sql.getAllPopular();
         recommendedList=tabnavi.sql.getRecoment();
         Log.d("hien thij", recommendedList.get(1).getName());
+
 
     }
 

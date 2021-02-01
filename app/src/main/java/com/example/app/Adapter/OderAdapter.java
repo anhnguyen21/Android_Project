@@ -1,10 +1,12 @@
 package com.example.app.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -12,8 +14,12 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.app.CartProduct;
+import com.example.app.LoginFrom;
 import com.example.app.Object.cart;
 import com.example.app.R;
+import com.example.app.Regist;
+import com.example.app.SQL.SQL;
 import com.example.app.model.Recommended;
 import com.example.app.tabnavi;
 
@@ -52,12 +58,21 @@ public class OderAdapter extends RecyclerView.Adapter<OderAdapter.OderViewHolder
         int id = context.getResources().getIdentifier(recommendedList.get(cartList.get(position).getIdPro()-1).getImageUrl(), "drawable", context.getPackageName());
         holder.imageView.setImageDrawable(context.getResources().getDrawable(id));
 //        Glide.with(context).load(recommendedList.get(cartList.get(position).getIdPro()-1).getImageUrl()).into(holder.imageView);
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
+        holder.btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tabnavi.sql.delete(position);
+                tabnavi.sql.delete(cartList.get(position).getIdPro());
             }
         });
+//        Button btnBackCart=findViewById(R.id.btnBackCart);
+//        btnBackCart.setOnClickListener(new View.OnClickListener(){
+//
+//            @Override
+//            public void onClick(View v) {
+//                SQL sql1= new SQL(CartProduct.this);
+//                sql1.delete(position);
+//            }
+//        });
     }
 
     @Override
@@ -68,12 +83,14 @@ public class OderAdapter extends RecyclerView.Adapter<OderAdapter.OderViewHolder
     public class OderViewHolder extends RecyclerView.ViewHolder {
         ImageView imageView;
         TextView oderName, OderPrice, oderQuanlity;
+        Button btnDelete;
         public OderViewHolder(@NonNull View itemView) {
             super(itemView);
             imageView=itemView.findViewById(R.id.imgcart);
             oderName=itemView.findViewById(R.id.txNameCart);
             oderQuanlity=itemView.findViewById(R.id.quanlity);
             OderPrice=itemView.findViewById(R.id.txtpriceOder);
+            btnDelete=itemView.findViewById(R.id.btnDelete);
         }
     }
 }

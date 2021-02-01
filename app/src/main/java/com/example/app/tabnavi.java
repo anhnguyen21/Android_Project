@@ -1,6 +1,7 @@
 package com.example.app;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
@@ -12,6 +13,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.example.app.Adapter.PopularAdapter;
 import com.example.app.Object.cart;
 import com.example.app.SQL.SQL;
+import com.example.app.frament.NewFragment;
 import com.example.app.frament.OrderFragment;
 import com.example.app.frament.ViewPageAdapter;
 import com.example.app.model.Popular;
@@ -21,7 +23,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 import java.util.List;
-
 public class tabnavi extends AppCompatActivity {
 
     public static List<Popular> std=new ArrayList<>();
@@ -38,6 +39,9 @@ public class tabnavi extends AppCompatActivity {
 //    AllmenuAdapter allmenuAdapter;
 
 
+    public tabnavi() {
+
+    }
 
     private ViewPager viewPager;
     private BottomNavigationView bottomNavigationView;
@@ -56,10 +60,9 @@ public class tabnavi extends AppCompatActivity {
         bottomNavigationView =findViewById(R.id.btnavi);
 
 //        khai báo viewadapter vừa mới viết
+
         ViewPageAdapter adapter=new ViewPageAdapter(getSupportFragmentManager(), FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
         viewPager.setAdapter(adapter);
-
-
 
         //        sự kiện vuốt viewpager
 
@@ -71,6 +74,7 @@ public class tabnavi extends AppCompatActivity {
             //thay đổi từng vị trí position trong navi
             @Override
             public void onPageSelected(int position) {
+
                 sql1=new SQL(tabnavi.this);
                 switch (position){
                     case 0:
@@ -100,13 +104,16 @@ public class tabnavi extends AppCompatActivity {
                 sql1=new SQL(tabnavi.this);
                 switch (item.getItemId()){
                     case R.id.menu_news:
+                        Log.d("item","1");
                         viewPager.setCurrentItem(0);
                         break;
                     case R.id.menu_order:
-                        sql1.getCart();
+                        Log.d("item","2");
+                        new OrderFragment(sql1.getCart());
                         viewPager.setCurrentItem(1);
                         break;
                     case R.id.menu_account:
+                        Log.d("item","3");
                         viewPager.setCurrentItem(2);
                         break;
                 }

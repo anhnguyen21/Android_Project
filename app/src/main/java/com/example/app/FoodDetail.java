@@ -78,6 +78,7 @@ public class FoodDetail extends AppCompatActivity {
                 cart cart=new cart(Integer.valueOf(intent.getStringExtra("id")),1);
                 sql.addCart(cart);
                 Log.d("Dat hang","thanh cong");
+                new tabnavi();
             }
         });
 
@@ -86,7 +87,15 @@ public class FoodDetail extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-//                findNavController().navigate(R.id.action_fragmentC_to_fragmentB, null, null);
+                finish();
+            }
+        });
+        Button btnCart =findViewById(R.id.btnCart);
+        btnCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent (FoodDetail.this, CartProduct.class);
+                startActivity(intent);
             }
         });
     }

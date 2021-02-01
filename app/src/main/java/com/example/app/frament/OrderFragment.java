@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.app.Adapter.OderAdapter;
 import com.example.app.Object.cart;
 import com.example.app.R;
-import com.example.app.model.Popular;
 import com.example.app.model.Recommended;
 import com.example.app.tabnavi;
 
@@ -28,8 +27,8 @@ import java.util.List;
 public class OrderFragment extends Fragment {
     View v;
     RecyclerView recyclerViewOder;
-    private List<cart> cartList;
-    private List<Recommended> recommendedList;
+    private List<cart> cartList = tabnavi.sql.getCart();
+    private List<Recommended> recommendedList=tabnavi.sql.getRecoment();
     TextView itemPrice, itemQuantity;
 
     // TODO: Rename parameter arguments, choose names that match
@@ -43,6 +42,11 @@ public class OrderFragment extends Fragment {
 
     public OrderFragment() {
         // Required empty public constructor
+    }
+
+    public OrderFragment(List<cart> cartList) {
+        // Required empty public constructor
+        this.cartList=cartList;
     }
 
     /**
@@ -76,8 +80,6 @@ public class OrderFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        cartList= tabnavi.sql.getCart();
-        recommendedList=tabnavi.sql.getRecoment();
         int totalPrice=0;
         int total=0;
         for (int i=0;i<cartList.size();i++) {
@@ -87,12 +89,14 @@ public class OrderFragment extends Fragment {
             totalPrice += quantity * price;
             Log.d("i:", String.valueOf(totalPrice));
         }
+        Log.d("Tông số sản phẩm:", String.valueOf(cartList.size()));
         v=inflater.inflate(R.layout.fragment_oder, container, false);
-        itemQuantity=v.findViewById((R.id.txtTotalNumber));
-        itemPrice = v.findViewById(R.id.txtTotal);
+        itemQuantity=v.findViewById((R.id.txtTotalCart));
+        itemPrice = v.findViewById(R.id.txtTotalPrice);
         itemPrice.setText(String.valueOf(totalPrice)+ " $");
         itemQuantity.setText(String.valueOf(total));
         recyclerViewOder=v.findViewById(R.id.recyCart);
+
         OderAdapter oderAdapter=new OderAdapter(getContext(),cartList,recommendedList);
         recyclerViewOder.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerViewOder.setAdapter(oderAdapter);

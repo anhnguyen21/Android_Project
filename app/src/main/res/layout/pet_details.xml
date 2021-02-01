@@ -16,7 +16,7 @@
         app:srcCompat="@drawable/g4" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btnCart"
         android:layout_width="53dp"
         android:layout_height="49dp"
         android:layout_marginTop="10dp"

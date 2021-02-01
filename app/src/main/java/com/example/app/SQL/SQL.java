@@ -59,11 +59,6 @@ public class SQL extends SQLiteOpenHelper {
         String ROW7 = "INSERT INTO popular" + " Values (7,'BeU 5','m1','4.7','4.5 minis', 'Free Delivery','183','Extra special');";
         db.execSQL(ROW7);
 
-
-
-
-
-
         // insert du lieu vao bang new product
         String R1 = "INSERT INTO newproduct" + " Values (1,'Honner Band 5','g4','4.6','4.5 minis', 'Free Delivery','120','Extra special');";
         db.execSQL(R1);
@@ -104,13 +99,13 @@ public class SQL extends SQLiteOpenHelper {
             }
         }
         if(check==true){
-            this.getCart();
             Log.d("du lieu","quanlity +1");
         }else{
             ContentValues contentValues= new ContentValues();
             contentValues.put("idPro",cart.getIdPro());
             contentValues.put("quanlity",1);
             database.insert("cart",null,contentValues);
+            this.getCart();
             Log.d("du lieu","thanh cong");
         }
 
@@ -119,13 +114,14 @@ public class SQL extends SQLiteOpenHelper {
 
     public  void delete(int id){
         SQLiteDatabase database= getWritableDatabase();
+        Log.d("Id san Pham xoa",String.valueOf(id));
         database.execSQL("DELETE FROM cart Where idPro ="+"'"+id+"'");
         Log.d("thực hiện","xoa dữ liệu");
         this.getCart();
     }
 
     public void addAccount(account account){
-        SQLiteDatabase database= getReadableDatabase();
+        SQLiteDatabase database= getWritableDatabase()  ;
         ContentValues contentValues= new ContentValues();
         contentValues.put("username",account.getUserName());
         contentValues.put("password",account.getPassWord());
@@ -147,7 +143,7 @@ public class SQL extends SQLiteOpenHelper {
             cart ac=new cart(id, idPro,quanlity );
             cartList.add(ac);
             cursor.moveToNext();
-
+            Log.d("Id san Pham",String.valueOf(id));
         }
         Log.d("them sp","hien thi ra man hinh");
         cursor.close();
