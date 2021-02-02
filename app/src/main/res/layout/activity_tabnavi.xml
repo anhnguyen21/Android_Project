@@ -4,15 +4,15 @@
     xmlns:tools="http://schemas.android.com/too"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/holo_blue_dark"
+    android:background="@android:color/background_light"
     tools:context=".frament.tabnavi">
 
     // viewpager thuộc androidx
+
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/view_pager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
+        android:layout_height="match_parent" />
     <!--    // import google -->
     <!--        gọi thuộc tính color vừa được tạo ở trong file-->
     <!--    tạo 1 menu chứa icon và tên của chức năng-->
@@ -23,10 +23,9 @@
         android:layout_alignParentBottom="true"
         android:background="@color/white"
 
-        app:itemTextColor="@color/color_navi"
         app:itemIconTint="@color/color_navi"
-        app:menu="@menu/menu_bt_navi"
-        />
+        app:itemTextColor="@color/color_navi"
+        app:menu="@menu/menu_bt_navi" />
 
 </RelativeLayout>
 

@@ -177,10 +177,64 @@ public class SQL extends SQLiteOpenHelper {
         return recommendedList;
     }
 
+    public List<Recommended> getSearchRecoment(String str){
+        Log.d("Chuôi", str);
+        List<Recommended> recommendedList=new ArrayList<>();
+        String getUser="select * from newproduct  WHERE name LIKE "+"'%Honner%'";
+        SQLiteDatabase db=getReadableDatabase();
+
+        Cursor cursor=db.rawQuery(getUser,null);
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()){
+            int id;
+            String name,  imageUrl,  rating,  deliveryTime,  deliveryCharges,  price,  note;
+            id=cursor.getInt(0);
+            name=cursor.getString(1);
+            imageUrl=cursor.getString(2);
+            rating=cursor.getString(3);
+            deliveryTime=cursor.getString(4);
+            deliveryCharges=cursor.getString(5);
+            price=cursor.getString(6);
+            note=cursor.getString(7);
+            Recommended ac=new Recommended(id ,name,  imageUrl,  rating,  deliveryTime,  deliveryCharges,  price, note);
+            recommendedList.add(ac);
+            cursor.moveToNext();
+
+        }
+        cursor.close();
+        return recommendedList;
+    }
+
 
     public List<Popular> getAllPopular(){
         List<Popular> popularList=new ArrayList<>();
         String getUser="select * from popular";
+        SQLiteDatabase db=getReadableDatabase();
+
+        Cursor cursor=db.rawQuery(getUser,null);
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()){
+            String imageUrl;
+            String name, rating,  deliveryTime,  deliveryCharges,  price,  note;
+            name=cursor.getString(1);
+            imageUrl=cursor.getString(2);
+            rating=cursor.getString(3);
+            deliveryTime=cursor.getString(4);
+            deliveryCharges=cursor.getString(5);
+            price=cursor.getString(6);
+            note=cursor.getString(7);
+            Popular ac=new Popular(name,  imageUrl,  rating,  deliveryTime,  deliveryCharges,  price,  note);
+            popularList.add(ac);
+            cursor.moveToNext();
+
+        }
+        cursor.close();
+        return popularList;
+    }
+
+    public List<Popular> getAllSearchPopular(String str){
+        List<Popular> popularList=new ArrayList<>();
+        String getUser="select * from popular  WHERE CustomerName ="+"'"+str+"'";
         SQLiteDatabase db=getReadableDatabase();
 
         Cursor cursor=db.rawQuery(getUser,null);

@@ -1,10 +1,12 @@
 package com.example.app.frament;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
@@ -12,11 +14,16 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.app.Adapter.OderAdapter;
+import com.example.app.Adapter.RecomentAdapter;
+import com.example.app.LoginFrom;
 import com.example.app.Object.cart;
 import com.example.app.R;
+import com.example.app.Regist;
+import com.example.app.model.Popular;
 import com.example.app.model.Recommended;
 import com.example.app.tabnavi;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -28,8 +35,8 @@ public class OrderFragment extends Fragment {
     View v;
     RecyclerView recyclerViewOder;
     private List<cart> cartList = tabnavi.sql.getCart();
-    private List<Recommended> recommendedList=tabnavi.sql.getRecoment();
-    TextView itemPrice, itemQuantity;
+    private List<Recommended> recommendedList=new ArrayList<>();
+    TextView Search;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -80,27 +87,24 @@ public class OrderFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        int totalPrice=0;
-        int total=0;
-        for (int i=0;i<cartList.size();i++) {
-            int quantity = cartList.get(i).getQuanlity();
-            int price = Integer.parseInt(recommendedList.get(cartList.get(i).getIdPro() - 1).getPrice());
-            total+=quantity;
-            totalPrice += quantity * price;
-            Log.d("i:", String.valueOf(totalPrice));
-        }
-        Log.d("Tông số sản phẩm:", String.valueOf(cartList.size()));
+        String textSearch;
         v=inflater.inflate(R.layout.fragment_oder, container, false);
-        itemQuantity=v.findViewById((R.id.txtTotalCart));
-        itemPrice = v.findViewById(R.id.txtTotalPrice);
-        itemPrice.setText(String.valueOf(totalPrice)+ " $");
-        itemQuantity.setText(String.valueOf(total));
-        recyclerViewOder=v.findViewById(R.id.recyCart);
+        recyclerViewOder=v.findViewById(R.id.reSearch);
+        Search=v.findViewById(R.id.IpSearch);
+        textSearch=Search.getText().toString();
+        Button btdk =v.findViewById(R.id.btnSearch);
+        Log.d("hirnthij ", textSearch);
+        btdk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-        OderAdapter oderAdapter=new OderAdapter(getContext(),cartList,recommendedList);
-        recyclerViewOder.setLayoutManager(new LinearLayoutManager(getActivity()));
-        recyclerViewOder.setAdapter(oderAdapter);
+                recommendedList=tabnavi.sql.getSearchRecoment(textSearch);
+                RecomentAdapter recomentAdapter=new RecomentAdapter(getContext(),recommendedList);
+                recyclerViewOder.setLayoutManager(new LinearLayoutManager(getActivity()));
+                recyclerViewOder.setAdapter(recomentAdapter);
+            }
+        });
+
         return v;
-
     }
 }
